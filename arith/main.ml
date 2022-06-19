@@ -56,12 +56,14 @@ let rec process_file f  =
   else (
     alreadyImported := f :: !alreadyImported;
     let cmds = parseFile f in
+    (* MEMO これは何？ *)
     let g  c =  
       open_hvbox 0;
       let results = process_command  c in
       print_flush();
       results
     in
+    (* ここで実際に実行をしようとしている？ *)
       List.iter g  cmds)
 
 and process_command  cmd = match cmd with
