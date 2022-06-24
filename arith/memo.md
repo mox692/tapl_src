@@ -26,8 +26,9 @@ pred(succ(0));
 
 ## その他
 * 式(or 文)の末尾にセミコロンがないといけない
-* 
-
+* Lexer() -> parser.Token -> parser() -> List[command] 
+  -> process command関数 -> eval(どういう変換skちえる？)(term -> term)
+  -> printtm_ATermで、term型ごとにprintしてうr 
 
 ## TODO
 * parserの動きをおう

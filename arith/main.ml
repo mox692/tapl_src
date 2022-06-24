@@ -39,6 +39,8 @@ let openfile infile =
             with Sys_error m -> trynext rest
   in trynext !searchpath
 
+(* MEMO: ここで独自の内部表現に変換している *)
+(* 最終的には yntax.command list  型を返している *)
 let parseFile inFile =
   let pi = openfile inFile
   in let lexbuf = Lexer.create inFile pi
