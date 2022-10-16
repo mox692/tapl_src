@@ -4,3 +4,5 @@
 /**/*.cmi
 *.hi
 **/*.o
+.DS_Store
+Main
