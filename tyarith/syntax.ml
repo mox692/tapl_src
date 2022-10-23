@@ -20,6 +20,7 @@ type term =
 
 type command =
     Import of string
+  (* MEMO: ここのinfoが何をしているのかが謎 *)
   | Eval of info * term
 
 (* ---------------------------------------------------------------------- *)

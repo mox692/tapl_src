@@ -55,9 +55,12 @@ let rec process_file f  =
     ()
   else (
     alreadyImported := f :: !alreadyImported;
+    (* MEMO: 抽象構文木(command list)を作成 *)
+    (* MEMO: 1つのコマンドが、意味のある1つの式に対応 *)
     let cmds = parseFile f in
     let g  c =  
       open_hvbox 0;
+      (* MEMO: process_command で型checkとevalを行っている *)
       let results = process_command  c in
       print_flush();
       results
@@ -68,6 +71,7 @@ and process_command  cmd = match cmd with
     Import(f) -> 
       process_file f 
   | Eval(fi,t) -> 
+      (* MEMO: 先に型検査を行ってから、evalを行っている *)
       let tyT = typeof t in
       let t' = eval t in
       printtm_ATerm true t'; 

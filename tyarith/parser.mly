@@ -107,6 +107,7 @@ toplevel :
 Command :
     IMPORT STRINGV { (Import($2.v)) }
   | Term 
+      // MEMO: ここで(term型の値ではなく) Eval (command型の値) を作成している
       { (let t = $1 in Eval(tmInfo t,t)) }
 
 Term :
